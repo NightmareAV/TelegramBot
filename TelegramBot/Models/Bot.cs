@@ -23,6 +23,7 @@ namespace TelegramBot.Models
 
             commandsList = new List<Command>();
             commandsList.Add(new HelloCommand());
+            commandsList.Add(new MusicCommand());
 
             //TODO Add more commands
 

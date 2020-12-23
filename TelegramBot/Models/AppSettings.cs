@@ -7,7 +7,7 @@ namespace TelegramBot.Models
 {
     public static class AppSettings
     {
-        public static string Url { get; set; } = "https://67a1ef420e18.ngrok.io/{0}";
+        public static string Url { get; set; } = "https://ac3eddacc20b.ngrok.io/{0}";
         public static string Name { get; set; } = "nightmareAV_bot";
         public static string Key { get; set; } = "1228626568:AAFFt87fxQeY7A8YjkUGtaAwg4ENaD5DebA";
     }
