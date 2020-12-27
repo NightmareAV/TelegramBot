@@ -189,7 +189,6 @@
     <Compile Include="Models\Commands\DefaultCommand.cs" />
     <Compile Include="Models\Commands\HelloCommand.cs" />
     <Compile Include="Models\Commands\MusicCommand.cs" />
-    <Compile Include="Models\Music.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
