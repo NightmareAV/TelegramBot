@@ -13,26 +13,24 @@ namespace TelegramBot.Models.Commands
     public class MusicCommand : Command
     {
         public override string Name => "music";
-
-        private MusicModel musicModel;
-        public MusicCommand()
-        {
-            musicModel = new MusicModel();
-        }
-
         public override async void Execute(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
 
-            Random random = new Random();
-            List<Music> musics = (List<Music>)musicModel.GetMusics();
+            string[] files = Directory.GetFiles("E:\\music");
+            List<string> musics = new List<string>();
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                musics.Add(files[i].Split('\\')[2].ToLower());
+            }
 
             string allMusicsName = "";
 
             foreach (var music in musics)
             {
-                allMusicsName += $"{music.Url}\n";
+                allMusicsName += $"{music}\n";
             }
 
             await client.SendTextMessageAsync(chatId, allMusicsName);
