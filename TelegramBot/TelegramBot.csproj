@@ -183,6 +183,7 @@
     <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\Bot.cs" />
     <Compile Include="Models\Commands\Command.cs" />
+    <Compile Include="Models\Commands\DefaultCommand.cs" />
     <Compile Include="Models\Commands\HelloCommand.cs" />
     <Compile Include="Models\Commands\MusicCommand.cs" />
     <Compile Include="Models\Music.cs" />

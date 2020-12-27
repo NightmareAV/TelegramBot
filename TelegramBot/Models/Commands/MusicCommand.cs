@@ -12,38 +12,49 @@ namespace TelegramBot.Models.Commands
 {
     public class MusicCommand : Command
     {
+        public override string Name => "music";
+
         private MusicModel musicModel;
         public MusicCommand()
         {
             musicModel = new MusicModel();
         }
-        public override string Name => "music";
 
-        public async override void Execute(Message message, TelegramBotClient client)
+        public override void Execute(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
 
             Random random = new Random();
             List<Music> musics = (List<Music>)musicModel.GetMusics();
-            Music music = new Music();
 
-            music = musics.ElementAt(random.Next(0, musics.Count));
+            string allMusicsName = "";
 
-            using (var stream = System.IO.File.OpenRead("E:\\music\\" + music.Url))
+            foreach (var music in musics)
             {
-                await client.SendPhotoAsync(
-                    chatId: chatId,
-                    photo: music.Photo                    
-                    );
-                await client.SendAudioAsync(
-                  chatId: chatId,
-                  audio: stream,
-                  performer: music.Name,
-                  title: music.Performer,
-                  duration: music.Duration
-                );
+                allMusicsName += $"{music.Url}\n";
             }
+
+            client.SendTextMessageAsync(chatId, allMusicsName);
+
+            musics.Clear();
+
+            //music = musics.ElementAt(random.Next(0, musics.Count));
+
+            //using (var stream = System.IO.File.OpenRead("E:\\music\\" + music.Url))
+            //{
+            //    await client.SendPhotoAsync(
+            //        chatId: chatId,
+            //        photo: music.Photo                    
+            //        );
+            //    await client.SendAudioAsync(
+            //      chatId: chatId,
+            //      audio: stream,
+            //      performer: music.Name,
+            //      title: music.Performer,
+            //      duration: music.Duration
+            //    );
+            //}
         } 
     }
 }

@@ -25,6 +25,8 @@ namespace TelegramBot.Models
             commandsList.Add(new HelloCommand());
             commandsList.Add(new MusicCommand());
 
+            commandsList.Add(new DefaultCommand());
+
             //TODO Add more commands
 
             client = new TelegramBotClient(AppSettings.Key);

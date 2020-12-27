@@ -19,14 +19,21 @@ namespace TelegramBot.Controllers
             var commands = Bot.Commands;
             var message = update.Message;
             var client = await Bot.Get();
+            bool isDefault = true;
 
             foreach (var command in commands)
             {
                 if (command.Contains(message.Text))
                 {
                     command.Execute(message, client);
+                    isDefault = false;
                     break;
                 }
+            }
+
+            if (isDefault)
+            {
+                commands.ElementAt(commands.Count - 1).Execute(message, client);
             }
 
             return Ok();
