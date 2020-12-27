@@ -20,7 +20,7 @@ namespace TelegramBot.Models.Commands
             musicModel = new MusicModel();
         }
 
-        public override void Execute(Message message, TelegramBotClient client)
+        public override async void Execute(Message message, TelegramBotClient client)
         {
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
@@ -35,7 +35,7 @@ namespace TelegramBot.Models.Commands
                 allMusicsName += $"{music.Url}\n";
             }
 
-            client.SendTextMessageAsync(chatId, allMusicsName);
+            await client.SendTextMessageAsync(chatId, allMusicsName);
 
             musics.Clear();
         } 

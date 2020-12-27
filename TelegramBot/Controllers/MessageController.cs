@@ -25,7 +25,7 @@ namespace TelegramBot.Controllers
             {
                 if (command.Contains(message.Text))
                 {
-                    command.Execute(message, client);
+                    await Task.Run(() => command.Execute(message, client));
                     isDefault = false;
                     break;
                 }
@@ -33,7 +33,7 @@ namespace TelegramBot.Controllers
 
             if (isDefault)
             {
-                commands.ElementAt(commands.Count - 1).Execute(message, client);
+                await Task.Run(() => commands.ElementAt(commands.Count - 1).Execute(message, client));
             }
 
             return Ok();
