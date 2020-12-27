@@ -27,10 +27,10 @@ namespace TelegramBot.Models.Commands
 
                     using (var stream = System.IO.File.OpenRead(files[i]))
                     {
-                        //await client.SendPhotoAsync(
-                        //          chatId: chatId,
-                        //          photo: tag.Tag.Album
-                        //          );
+                        await client.SendPhotoAsync(
+                                  chatId: chatId,
+                                  photo: (Telegram.Bot.Types.InputFiles.InputOnlineFile)tag.Tag.Pictures[0]
+                                  );
                         await client.SendAudioAsync(
                            chatId: chatId,
                            audio: stream,
