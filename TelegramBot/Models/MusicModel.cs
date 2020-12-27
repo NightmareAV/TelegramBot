@@ -33,6 +33,7 @@ namespace TelegramBot.Models
                 music.Performer = Convert.ToString(sql["Performer"]);
                 music.Duration = Convert.ToInt32(sql["Duration"]);
                 music.Url = Convert.ToString(sql["Url"]);
+                music.Photo = Convert.ToString(sql["Photo"]);
                 musics.Add(music);
             }
             dbConnection.Close();

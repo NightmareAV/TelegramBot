@@ -12,6 +12,6 @@ namespace TelegramBot.Models
         public string Performer { get; set; }
         public int Duration { get; set; }
         public string Url { get; set; }
-
+        public string Photo { get; set; }
     }
 }

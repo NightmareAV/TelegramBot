@@ -32,6 +32,10 @@ namespace TelegramBot.Models.Commands
 
             using (var stream = System.IO.File.OpenRead("E:\\music\\" + music.Url))
             {
+                await client.SendPhotoAsync(
+                    chatId: chatId,
+                    photo: music.Photo                    
+                    );
                 await client.SendAudioAsync(
                   chatId: chatId,
                   audio: stream,
